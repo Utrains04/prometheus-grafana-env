@@ -128,7 +128,7 @@ resource "aws_instance" "prometheus" {
   subnet_id              = aws_subnet.web-subnet.id
   vpc_security_group_ids = ["${aws_security_group.web-sg.id}"]
   key_name               = aws_key_pair.ec2_key.key_name
-  #user_data              = file("prometheus_script.sh")
+  user_data              = file("prometheus_script.sh")
 
   tags = {
     owner   = "prometheus"
@@ -142,7 +142,7 @@ resource "aws_instance" "grafana" {
   subnet_id              = aws_subnet.web-subnet.id
   vpc_security_group_ids = ["${aws_security_group.web-sg.id}"]
   key_name               = aws_key_pair.ec2_key.key_name
-  #user_data              = file("grafana_script.sh")
+  user_data              = file("grafana_script.sh")
 
     tags = {
     owner   = "grafana"
@@ -155,7 +155,7 @@ resource "aws_instance" "client" {
   subnet_id              = aws_subnet.web-subnet.id
   vpc_security_group_ids = ["${aws_security_group.web-sg.id}"]
   key_name               = aws_key_pair.ec2_key.key_name
-  #user_data              = file("client_script.sh")
+  user_data              = file("client_script.sh")
 
     tags = {
     owner   = "client"
